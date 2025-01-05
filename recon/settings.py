@@ -50,9 +50,10 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    "recon.middlewares.ReconDownloaderMiddleware": 543, 
-# }
+DOWNLOADER_MIDDLEWARES = {
+   "scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware": 110,
+#    "recon.middlewares.ReconDownloaderMiddleware": 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -90,3 +91,7 @@ ROBOTSTXT_OBEY = False
 # Set settings whose default value is deprecated to a future-proof value
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+# Use Tor as a proxy
+HTTPPROXY_ENABLED = True
+HTTP_PROXY = "socks5h://127.0.0.1:9050"
